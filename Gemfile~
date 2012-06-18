@@ -7,7 +7,7 @@ gem 'rails', '3.2.6'
 
 #gem 'sqlite3'
 gem 'pg' #Heroku server uses PostrgreSQL
-gem 'thin' # Thin is web process thing
+
 gem 'json'
 
 # Gems used only for assets and not required
