@@ -1,6 +1,11 @@
 TodoList::Application.routes.draw do
-  get "home/index"
+   root to: 'static_pages#home' #telling RoR to go straight to homepage
+   match '/help', to: 'static_pages#hellp'
+#  get "static_pages/home"
+#  get "static_pages/hellp"
 
+  get "home/index"
+  #get "home/hello"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
