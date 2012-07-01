@@ -5,8 +5,14 @@ gem 'rails', '3.2.6'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-#gem 'sqlite3'
-gem 'pg' #Heroku server uses PostrgreSQL
+group :development, :test do
+      gem 'sqlite3'
+end
+
+group :production do
+      gem 'pg' #Heroku server uses PostrgreSQL
+end
+
 gem 'thin' # Thin is web process thing
 gem 'json'
 
