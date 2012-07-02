@@ -1,45 +1,32 @@
 <div class="hero-unit">
 <h1>TODO List</h1>
-<p>hopefully this will work sometime</p>
+<p>made by Luke Carlson. hopefully this will work sometime</p>
 <a href="../static_pages/hellp"> HELP </a>
 </div>
 
 
 New Task: <input type-"text" data-bind="value: newTask" valueUpdate: "afterkeydown" />
 <button data-bind="click: addTask"> add Task </button>
-<button data-bind="click: addPerson"> addPerson </button>
 <div data-bind="foreach: tasks">
-	<p> Task  <a href="#" data-bind="click: $parent.removeTask">Done</a> </p>
-</div>
-
-<div data-bind="foreach: people">
-	<p data-bind="text: name"> </p>
-	<a href="#" data-bind="click: $parent.removePerson">Done</a>
+	<p> <strong data-bind="text: name"></strong> <button class="btn btn-danger" data-bind="click: $parent.removeTask">Delete</button>  </p> 
 </div>
 
 <script src="knockout-2.1.0.js"> </script>
 <script type="text/javascript">
 
 var todoViewModel = function(){
-    this.tasks= ko.observableArray(["Swim", "Ski", "Program"])
     this.newTask = ko.observable("")
-    this.people = ko.observableArray([
-        { name: 'Bert' },
-        { name: 'Charles' },
-        { name: 'Denise' }
+    this.tasks = ko.observableArray([
+        { name: 'Run' },
+        { name: 'Ski' },
+        { name: 'Program' }
     ]);
     this.addTask = function () {
-        this.tasks.push(this.newTask());
+        this.tasks.push({name: this.newTask()});
         this.newTask("")
     }
     this.removeTask = function(){
         self.tasks.remove(this);
-    }
-    this.removePerson = function(){
-        self.people.remove(this);
-    }
-    this.addPerson = function(){
-        self.people.push({name: this.newTask});
     }
     // could i do removePerson(person) so that in the html i just pass in the name
 };
