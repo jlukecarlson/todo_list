@@ -1,7 +1,7 @@
 TodoList::Application.routes.draw do
-#   root to: 'static_pages#home' #telling RoR to go straight to homepage
-#   match '/help', to: 'static_pages#hellp'
-  match '/luke' => 'static_pages#home'
+  match '/'  => 'static_pages#home'
+  match '/luke' => 'static_pages#luke_todo'
+  match '/ryan' => 'static_pages#ryan_todo'
   get "static_pages/home"
   get "static_pages/hellp"
 

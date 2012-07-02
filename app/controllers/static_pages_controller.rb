@@ -4,4 +4,10 @@ class StaticPagesController < ApplicationController
 
   def hellp
   end
+
+  def ryan_todo
+  end
+
+  def luke_todo
+  end
 end
