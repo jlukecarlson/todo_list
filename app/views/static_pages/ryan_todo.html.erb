@@ -1,1 +1,52 @@
-<h1> Ryan's Stuff </h1>
+<body>
+
+<div class="container">
+</br></br>
+		<h1 style="font-size:60px;">Ryan's To Do</h1>
+
+	</br>
+	</br>
+		<div class="ryan-hero">
+			<div class="well">	
+	<select multiple data-bind="options: allItems, selectedOptions: selectedItems"></select>
+
+	<form data-bind="submit: addItem">
+	    Add task :
+	    <input data-bind="value: itemToAdd" />
+	    <button class="btn btn-primary" type="submit">Add</button>
+	</form>
+
+	<button class="btn btn-primary" data-bind="click: removeSelected, enable: selectedItems().length > 0">
+    Remove selected items
+	</button>
+
+	</div>
+
+   </div>
+</div>
+
+	
+	
+
+   <script type="text/javascript">
+        var listEditorViewModel = function () {
+            this.selectedItems = ko.observableArray([]);
+
+            this.allItems = ko.observableArray(["Eat", "Sleep", "Repeat"]);
+
+   			this.itemToAdd = ko.observable("");
+ 
+		    this.addItem = function () {
+		        this.allItems.push(this.itemToAdd());
+		        this.itemToAdd("");
+		    }
+
+		    this.removeSelected = function () {
+		        this.allItems.removeAll(this.selectedItems());
+		        this.selectedItems([]); // Reset selection to an empty set
+		    }
+            
+        };
+        window.onload = ko.applyBindings(new listEditorViewModel());
+    </script>
+</body>
