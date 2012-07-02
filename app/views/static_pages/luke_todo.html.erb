@@ -4,13 +4,13 @@
 <a href="../static_pages/hellp"> HELP </a>
 </div>
 
-
+<div class="luke-todo">
 New Task: <input type-"text" data-bind="value: newTask" valueUpdate: "afterkeydown" />
 <button data-bind="click: addTask"> add Task </button>
 <div data-bind="foreach: tasks">
 	<p> <strong data-bind="text: name"></strong> <button class="btn btn-danger" data-bind="click: $parent.removeTask">Delete</button>  </p> 
 </div>
-
+</div>
 <script src="knockout-2.1.0.js"> </script>
 <script type="text/javascript">
 
