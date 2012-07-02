@@ -15,6 +15,7 @@ New Task: <input type-"text" data-bind="value: newTask" valueUpdate: "afterkeydo
 <script type="text/javascript">
 
 var todoViewModel = function(){
+    self = this;
     this.newTask = ko.observable("")
     this.tasks = ko.observableArray([
         { name: 'Run' },
